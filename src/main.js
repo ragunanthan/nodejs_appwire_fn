@@ -1,4 +1,17 @@
-import { Client } from "node-appwrite";
+import { Client, Databases, ID } from "node-appwrite";
+
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1')
+    .setProject('651ba3e2b315e3c5e77b');
+
+const databases = new Databases(client);
+
+const promise = databases.createDocument(
+    '651ba3f89aaa3cdb51cc',
+    '651c29bd96294003de7f',
+    ID.unique(),
+    {}
+);
 // This is your Appwrite function
 // It's executed each time we get a request
 export default async ({ req, res, log, error }) => {
@@ -30,7 +43,14 @@ export default async ({ req, res, log, error }) => {
     try {
       const response = await fetch(url, options);
       const result = await response.text();
-      return res.send(result);
+
+    const promise = await databases.createDocument(
+      '[DATABASE_ID]',
+      '[COLLECTION_ID]',
+      ID.unique(),
+      result
+    );
+      return res.send("success", promise);
     } catch (error) {
       return res.send(error);
     }
