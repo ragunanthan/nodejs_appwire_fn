@@ -22,8 +22,6 @@ export default async ({ req, res, log, error }) => {
     // `res.send()` dispatches a string back to the client
     const data = await  fetch("https://rapidapi.com/felixeschmittfes/api/amazonlive", { method : "GET"});
     console.log(data)
-    const res = await  data.json();
-    console.log(res)
     return res.send("tesrt");
   }
 
