@@ -6,12 +6,7 @@ const client = new Client()
 
 const databases = new Databases(client);
 
-const promise = databases.createDocument(
-    '651ba3f89aaa3cdb51cc',
-    '651c29bd96294003de7f',
-    ID.unique(),
-    {}
-);
+
 // This is your Appwrite function
 // It's executed each time we get a request
 export default async ({ req, res, log, error }) => {
@@ -45,8 +40,8 @@ export default async ({ req, res, log, error }) => {
       const result = await response.text();
 
     const promise = await databases.createDocument(
-      '[DATABASE_ID]',
-      '[COLLECTION_ID]',
+      '651ba3f89aaa3cdb51cc',
+      '651c29bd96294003de7f',
       ID.unique(),
       result
     );
