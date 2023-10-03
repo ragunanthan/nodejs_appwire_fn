@@ -38,14 +38,13 @@ export default async ({ req, res, log, error }) => {
     try {
       const response = await fetch(url, options);
       const result = await response.text();
-
     const promise = await databases.createDocument(
       '651ba3f89aaa3cdb51cc',
       '651c29bd96294003de7f',
       ID.unique(),
       result
     );
-      return res.send("success", promise);
+      return res.send("success", promise, result);
     } catch (error) {
       return res.send(error);
     }
