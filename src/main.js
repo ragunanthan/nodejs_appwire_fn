@@ -42,7 +42,7 @@ export default async ({ req, res, log, error }) => {
         '651ba3f89aaa3cdb51cc',
         '651c29bd96294003de7f',
         ID.unique(),
-        "gchcgx"
+        {"name" :"gchcgx"}
       );
       return res.send("success");
     } catch (error) {
