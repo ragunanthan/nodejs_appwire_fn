@@ -39,7 +39,7 @@ export default async ({ req, res, log, error }) => {
         ID.unique(),
         {"name" :"gchcgx"}
       );
-      return res.send("success");
+      return res.send("successsdas");
     } catch (error) {
       return res.send(error);
     }
